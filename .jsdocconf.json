@@ -1,0 +1,10 @@
+{
+  "source": {
+    "include": "./src/"
+  },
+  "opts": {
+    "destination": "./man/",
+    "recurse": true
+  },
+  "plugins": ["node_modules/jsdoc-babel"]
+}

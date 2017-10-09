@@ -1,0 +1,47 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "author": {
+    "name": "hikaruna",
+    "email": "me@hikaruna.net",
+    "url": "http://www.hikaruna.net"
+  },
+  "man": "./man",
+  "scripts": {
+    "doc": "jsdoc -c .jsdocconf.json",
+    "test": "mocha",
+    "build": "babel src/ -d lib/ -s",
+    "fullbuild": "run-p check doc build",
+    "flow": "flow",
+    "eslint": "eslint src/ test/",
+    "lint": "run-s flow eslint",
+    "check": "run-p lint test",
+    "watch": "watch 'run-s fullbuild start' src/ test/",
+    "prestart": "npm run build",
+    "start": "node lib/index.js",
+    "prepublish": "run-s lint test build doc"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-preset-es2015-node": "^6.1.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-power-assert": "^1.0.0",
+    "babel-register": "^6.26.0",
+    "eslint": "^4.8.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "flow-bin": "^0.56.0",
+    "jsdoc": "^3.5.5",
+    "jsdoc-babel": "^0.3.0",
+    "mocha": "^4.0.1",
+    "npm-run-all": "^4.1.1",
+    "watch": "^1.0.2"
+  }
+}
